@@ -6,46 +6,39 @@ class Responsive {
 
   static bool isTablet(BuildContext context) =>
       MediaQuery.of(context).size.width < 1100 &&
-          MediaQuery.of(context).size.width >= 850;
+      MediaQuery.of(context).size.width >= 850;
 
   static bool isDesktop(BuildContext context) =>
       MediaQuery.of(context).size.width >= 1100;
 
-  static double fontSizeTitle(BuildContext context ){
-    if(MediaQuery.of(context).size.width < 850){
-      print('26');
+  static double fontSizeTitle(BuildContext context) {
+    if (MediaQuery.of(context).size.width < 850) {
       return 26;
-    } else if(MediaQuery.of(context).size.width < 1100){
-      print('36');
+    } else if (MediaQuery.of(context).size.width < 1100) {
       return 36;
-    }else {
-      print('46');
+    } else {
       return 46;
     }
   }
-  static double IconSize(BuildContext context ){
-    if(MediaQuery.of(context).size.width < 850){
-      print('icon 40');
+
+  static double IconSize(BuildContext context) {
+    if (MediaQuery.of(context).size.width < 850) {
       return 40;
     }
-    if(MediaQuery.of(context).size.width < 1100){
-      print('icon 60');
+    if (MediaQuery.of(context).size.width < 1100) {
       return 60;
     }
-    print('icon 80');
-    return 80;
-  }
-  static double ContentPadding(BuildContext context ){
-    if(MediaQuery.of(context).size.width < 850){
-      print('icon 40');
-      return 40;
-    }
-    if(MediaQuery.of(context).size.width < 1100){
-      print('icon 60');
-      return 60;
-    }
-    print('icon 80');
+
     return 80;
   }
 
+  static double ContentPadding(BuildContext context) {
+    if (MediaQuery.of(context).size.width < 850) {
+      return 40;
+    }
+    if (MediaQuery.of(context).size.width < 1100) {
+      return 60;
+    }
+    return 80;
+  }
 }

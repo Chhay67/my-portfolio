@@ -12,14 +12,11 @@ class ProfilePage extends StatelessWidget {
       height: double.maxFinite,
       width: double.maxFinite,
       color: AppColors.backGroundColor,
-      child: Stack(
+      child: Column(
+        mainAxisSize: MainAxisSize.max,
         children: [
-          Positioned(
-              left: Responsive.isDesktop(context) ? 30 : 12,
-              top:  50,
-              right: Responsive.isDesktop(context) ? 30 : 12,
-              child: const IntroduceMySelf()),
-          Center(
+          Expanded(child: const IntroduceMySelf()),
+          Expanded(
             child: ContactSocialMedia(
               contacts: [
                 ContactIconButton(
@@ -31,7 +28,7 @@ class ProfilePage extends StatelessWidget {
                   onTap: (){},
                   customIcon: Padding(
                     padding: const EdgeInsets.all(4.0),
-                    child: Image.asset('assets/images/git-logo.png',width: 70,height:70,scale: 1),
+                    child: Image.asset('assets/images/git-logo.png',width: Responsive.IconSize(context) - 10,height:Responsive.IconSize(context) - 10,scale: 1),
                   ),
                 ),
                 const SizedBox(width: 30),
@@ -42,12 +39,7 @@ class ProfilePage extends StatelessWidget {
               ],
             ),
           ),
-          const Positioned(
-            right: 0,
-            left: 0,
-            bottom: 10,
-            child: Text('Develop by Song kimchhay, using @Flutter.',textAlign: TextAlign.center),
-          )
+          Text('Develop by Song kimchhay, using @Flutter.',textAlign: TextAlign.center,)
         ],
       ),
     );
@@ -64,9 +56,7 @@ class ContactSocialMedia extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding:  EdgeInsets.symmetric(vertical:Responsive.isDesktop(context) ?50 : 10,horizontal: Responsive.isDesktop(context) ? 100 : 16),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
+      child: Wrap(
         children: contacts,
       ),
     );
@@ -94,7 +84,7 @@ class ContactIconButton extends StatelessWidget {
       child: InkWell(
         borderRadius:BorderRadius.circular(16),
         onTap: onTap,
-        child: customIcon ?? Icon(icon,size: 80),
+        child: customIcon ?? Icon(icon,size: Responsive.IconSize(context)),
       ),
     );
   }
@@ -107,37 +97,40 @@ class IntroduceMySelf extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 30),
+    return Container(
+      alignment: Alignment.center,
+      padding: EdgeInsets.symmetric(horizontal: Responsive.ContentPadding(context)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           RichText(
-              text: const TextSpan(
+              text:  TextSpan(
                 text: 'S',
                 style: TextStyle(
                   color: Color(0xFF2E3440),
-                  fontSize: 45,
+                  fontSize: Responsive.fontSizeTitle(context),
                   fontWeight: FontWeight.w900
                 ),
                 children: [
                   TextSpan(
                     text: 'ong',
                     style: TextStyle(
-                        color: Colors.black38
+                        color: Colors.black38,
+                      fontSize: Responsive.fontSizeTitle(context),
                     ),
                   ),
                   TextSpan(
                     text: ' Kimchhay',
-                    style: TextStyle(fontWeight: FontWeight.bold)
+
+                    style: TextStyle(fontWeight: FontWeight.bold,fontSize: Responsive.fontSizeTitle(context),)
                   )
                 ]
               ),
           ),
-          const Text('Mobile Application Developer',style: TextStyle(
+          Text('Mobile Application Developer',style: TextStyle(
               color: AppColors.textColor,
-              fontSize: 32,
+              fontSize:Responsive.fontSizeTitle(context),
               fontWeight: FontWeight.w900
           )),
           const SizedBox(height: 10,),

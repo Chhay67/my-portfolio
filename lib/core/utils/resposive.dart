@@ -20,6 +20,35 @@ class Responsive {
       return 46;
     }
   }
+  static double fontSizeTitle1(BuildContext context) {
+    if (MediaQuery.of(context).size.width < 850) {
+      return 16;
+    } else if (MediaQuery.of(context).size.width < 1100) {
+      return 26;
+    } else {
+      return 36;
+    }
+  }
+
+  static double fontSizeTitle2(BuildContext context) {
+    if (MediaQuery.of(context).size.width < 850) {
+      return 16;
+    } else if (MediaQuery.of(context).size.width < 1100) {
+      return 18;
+    } else {
+      return 20;
+    }
+  }
+
+  static double fontSizeContent(BuildContext context) {
+    if (MediaQuery.of(context).size.width < 850) {
+      return 14;
+    } else if (MediaQuery.of(context).size.width < 1100) {
+      return 16;
+    } else {
+      return 18;
+    }
+  }
 
   static double IconSize(BuildContext context) {
     if (MediaQuery.of(context).size.width < 850) {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../core/theme/app_colors.dart';
-import '../../../../core/utils/resposive.dart';
+import '../../../../core/utils/responsive.dart';
 import '../../../../core/widgets/drawer/drawer_item.dart';
 import '../riverpod/drawer_provider.dart';
 
@@ -11,13 +11,10 @@ class MyDrawer extends ConsumerWidget {
   });
 
   double? responsiveDevice({required BuildContext context}){
-    if(Responsive.isTablet(context)){
-      return MediaQuery.of(context).size.width * 0.3;
-    }
     if(Responsive.isMobile(context)){
       return MediaQuery.of(context).size.width * 0.6;
     }
-    return null;
+    return MediaQuery.of(context).size.width * 0.3;
   }
 
   @override
@@ -50,13 +47,13 @@ class MyDrawer extends ConsumerWidget {
               onTap: () {
                 ref.read(drawerProvider.notifier).onChangedIndex(1);
               },
-              title: 'Projects',
+              title: 'Resume',
               selected: drawer == 1),
           DrawerItem(
               onTap: () {
                 ref.read(drawerProvider.notifier).onChangedIndex(2);
               },
-              title: 'Resume',
+              title: 'Projects',
               selected: drawer == 2),
           // DrawerItem(
           //     onTap: () {

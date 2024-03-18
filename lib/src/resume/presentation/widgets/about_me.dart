@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import '../../../../core/utils/resposive.dart';
+import '../../../../core/utils/responsive.dart';
 
 class AboutMe extends StatelessWidget {
   const AboutMe({

@@ -1,20 +1,17 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+
+import '../../theme/app_colors.dart';
 
 class MyTemplate extends StatelessWidget {
-  const MyTemplate({
-    super.key,
-    required this.children,
-    required this.appBar
-  });
-  final List<Widget> children;
-  final PreferredSizeWidget appBar;
+  const MyTemplate({super.key,required this.child});
+  final Widget child;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: appBar,
-      body: Row(
-        children: children,
-      ),
+    return Container(
+      color: AppColors.backGroundColor,
+      height: double.maxFinite,
+      width: double.maxFinite,
+      child: child,
     );
   }
 }

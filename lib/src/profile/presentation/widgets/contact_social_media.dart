@@ -1,7 +1,8 @@
 
 import 'package:flutter/cupertino.dart';
 
-import '../../../../core/utils/resposive.dart';
+import '../../../../core/utils/responsive.dart';
+
 
 class ContactSocialMedia extends StatelessWidget {
   const ContactSocialMedia({

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-
 import '../../theme/app_colors.dart';
+import '../../utils/responsive.dart';
 
 class DrawerItem extends StatelessWidget {
   const DrawerItem({
@@ -25,7 +25,7 @@ class DrawerItem extends StatelessWidget {
         hoverColor: const Color(0xFFD3D6DE),
         child: Padding(
           padding: const EdgeInsets.all(12),
-          child: Text(title),
+          child: Text(title,style: TextStyle(fontSize: Responsive.fontSizeTitle2(context),fontWeight: FontWeight.w500),),
         ),
       ),
     );
